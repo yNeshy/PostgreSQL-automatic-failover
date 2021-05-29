@@ -7,11 +7,16 @@ class DBConnectionTester :
         self.uniq_int = 10
         self.test_id = 1
         try:
-            self.connection = psycopg2.connect(user="postgres",
+            # Edit next lines.
+            self.connection = psycopg2.connect(
+                                            user="postgres",
                                             password="admin",
-                                            host="10.0.3.200",
+                                            host="127.0.0.1",
                                             port="5432",
-                                            database="test")
+                                            database="test"
+                            )
+            
+            
             self.cursor = self.connection.cursor()
         except (Exception, psycopg2.Error) :
             #print ("Error while fetching data from PostgreSQL", error)
